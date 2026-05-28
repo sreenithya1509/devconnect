@@ -1,49 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
-			crossorigin="anonymous"
-		/>
-		<link rel="stylesheet" href="css/style.css" />
-		<title>ChatCord App</title>
-	</head>
-	<body>
-		<div class="join-container">
-			<header class="join-header">
-				<h1><i class="fas fa-smile"></i> ChatCord</h1>
-			</header>
-			<main class="join-main">
-				<form action="chat.html">
-					<div class="form-control">
-						<label for="username">Username</label>
-						<input
-							type="text"
-							name="username"
-							id="username"
-							placeholder="Enter username..."
-							required
-						/>
-					</div>
-					<div class="form-control">
-						<label for="room">Room</label>
-						<select name="room" id="room">
-							<option value="JavaScript">JavaScript</option>
-							<option value="Python">Python</option>
-							<option value="PHP">PHP</option>
-							<option value="C#">C#</option>
-							<option value="Ruby">Ruby</option>
-							<option value="Java">Java</option>
-						</select>
-					</div>
-					<button type="submit" class="btn">Join Chat</button>
-				</form>
-			</main>
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DevConnect is a modern realtime collaboration platform for team messaging, rooms, and live presence."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>DevConnect | Realtime Collaboration Platform</title>
+  </head>
+  <body class="landing-page">
+    <a class="skip-link" href="#start">Skip to get started</a>
+
+    <main class="landing-shell">
+      <nav class="landing-nav" aria-label="Main navigation">
+        <a class="brand" href="/" aria-label="DevConnect home">
+          <span class="brand-mark" aria-hidden="true">D</span>
+          <span>DevConnect</span>
+        </a>
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="/login.html">Log in</a>
+          <a class="btn btn-primary" href="/signup.html">Get started</a>
+        </div>
+      </nav>
+
+      <section class="hero-grid" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Modern realtime collaboration platform</p>
+          <h1 id="hero-title">
+            Connect, collaborate, and communicate instantly with realtime team messaging.
+          </h1>
+          <p class="hero-lede">
+            Bring conversations, channels, and live presence together in one focused workspace
+            built for fast-moving teams.
+          </p>
+
+          <div class="hero-actions" id="start">
+            <a class="btn btn-primary btn-large" href="/signup.html">
+              <span>Create workspace</span>
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-ghost btn-large" href="/login.html">I already have an account</a>
+          </div>
+
+          <div class="hero-metrics" aria-label="Application features">
+            <div>
+              <strong>Realtime Sync</strong>
+              <span>Instant Messaging</span>
+            </div>
+            <div>
+              <strong>Multi Rooms</strong>
+              <span>Team Channels</span>
+            </div>
+            <div>
+              <strong>Smart UI</strong>
+              <span>Responsive Experience</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-product" aria-label="DevConnect product preview">
+          <div class="preview-toolbar">
+            <div class="preview-dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <span class="status-pill">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              Live workspace
+            </span>
+          </div>
+          <div class="preview-layout">
+            <div class="preview-rooms">
+              <span class="active"></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="preview-chat">
+              <div class="preview-message">
+                <b>Priya</b>
+                <span>Can we review the API handoff?</span>
+              </div>
+              <div class="preview-message own">
+                <b>DevConnect</b>
+                <span>Realtime sync is active.</span>
+              </div>
+              <div class="typing-preview">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="feature-section" aria-labelledby="features-title">
+        <div class="section-intro">
+          <p class="eyebrow">Built for team momentum</p>
+          <h2 id="features-title">Everything a realtime workspace needs.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <i class="fas fa-bolt" aria-hidden="true"></i>
+            <h3>Realtime Messaging</h3>
+            <p>Socket-powered conversations keep every channel updated instantly.</p>
+          </article>
+          <article class="feature-card">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <h3>Team Collaboration</h3>
+            <p>Structured rooms keep product, engineering, and support conversations organized.</p>
+          </article>
+          <article class="feature-card">
+            <i class="fas fa-lock" aria-hidden="true"></i>
+            <h3>Secure Channels</h3>
+            <p>Protected sessions and channel-based access keep team communication private.</p>
+          </article>
+          <article class="feature-card">
+            <i class="fas fa-signal" aria-hidden="true"></i>
+            <h3>Instant Presence</h3>
+            <p>Online members, typing feedback, and room activity make collaboration feel live.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard-section" aria-label="Dashboard preview">
+        <div class="dashboard-copy">
+          <p class="eyebrow">Dashboard preview</p>
+          <h2>Designed to feel calm during real work.</h2>
+          <p>
+            Built for focused realtime collaboration with clean workflows and distraction-free
+            communication.
+          </p>
+        </div>
+        <div class="dashboard-mockup" aria-hidden="true">
+          <div class="mock-sidebar"></div>
+          <div class="mock-main">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="mock-panel"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/theme.js"></script>
+  </body>
 </html>

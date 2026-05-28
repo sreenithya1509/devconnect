@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://your-render-or-railway-app.example.com/api/:path*"
+    }
+  ]
+}
