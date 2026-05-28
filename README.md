@@ -58,15 +58,7 @@ REDIS_URL=
 
 `MONGODB_URI` is optional for local demo mode. If it is not set, DevConnect uses in-memory storage so the app still runs. For production, use MongoDB Atlas.
 
-## Screenshots
 
-Add screenshots here after deployment:
-
-- Landing page
-- Login/signup flow
-- Desktop chat workspace
-- Mobile chat workspace
-- Dark mode
 
 ## Deployment
 
