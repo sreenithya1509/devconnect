@@ -58,15 +58,7 @@ REDIS_URL=
 
 `MONGODB_URI` is optional for local demo mode. If it is not set, DevConnect uses in-memory storage so the app still runs. For production, use MongoDB Atlas.
 
-## Screenshots
 
-Add screenshots here after deployment:
-
-- Landing page
-- Login/signup flow
-- Desktop chat workspace
-- Mobile chat workspace
-- Dark mode
 
 ## Deployment
 
@@ -90,12 +82,3 @@ Add screenshots here after deployment:
 
 The current app can be served by Express from `public/`. If deploying the frontend separately on Vercel, set the frontend project root to `public/` and point API/WebSocket calls to the backend URL. Keep `CLIENT_ORIGIN` on the backend in sync with the Vercel URL.
 
-## Future Improvements
-
-- File uploads and message attachments
-- Direct messages
-- Room creation and invitations
-- Message reactions and threaded replies
-- Read receipts per user
-- Profile settings page
-- Automated tests and CI
