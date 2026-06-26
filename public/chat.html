@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DevConnect realtime collaboration workspace with rooms, messages, presence, and typing indicators."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Workspace | DevConnect</title>
+  </head>
+  <body class="chat-page">
+    <a class="skip-link" href="#msg">Skip to message composer</a>
+
+    <div class="workspace-shell">
+      <aside class="server-rail" aria-label="DevConnect rooms">
+        <a class="server-logo" href="/" aria-label="DevConnect home">D</a>
+        <button class="rail-action active" type="button" aria-label="Workspace">
+          <i class="fas fa-comment-dots" aria-hidden="true"></i>
+        </button>
+        <button
+          class="rail-action"
+          id="mute-btn"
+          type="button"
+          aria-label="Toggle notification sounds"
+          aria-pressed="false"
+        >
+          <i class="fas fa-bell" aria-hidden="true"></i>
+        </button>
+        <button
+          class="rail-action"
+          id="settings-btn"
+          type="button"
+          aria-label="Workspace settings"
+          aria-controls="settings-modal"
+        >
+          <i class="fas fa-cog" aria-hidden="true"></i>
+        </button>
+      </aside>
+
+      <aside class="room-sidebar" id="room-sidebar" aria-label="Rooms">
+        <div class="sidebar-header">
+          <a class="brand" href="/" aria-label="DevConnect home">
+            <span class="brand-mark" aria-hidden="true">D</span>
+            <span>DevConnect</span>
+          </a>
+          <span class="status-pill compact">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            Live
+          </span>
+        </div>
+
+        <section class="room-section" aria-labelledby="rooms-title">
+          <div class="section-heading">
+            <p class="section-label" id="rooms-title">Team channels</p>
+            <button class="icon-btn fab" type="button" aria-label="Create channel">
+              <i class="fas fa-plus" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="room-list" id="room-list" role="listbox" aria-label="Available rooms"></div>
+        </section>
+
+        <section class="profile-card" aria-label="Signed in profile">
+          <div class="avatar" id="profile-avatar" aria-hidden="true">D</div>
+          <div>
+            <strong id="profile-name">Loading</strong>
+            <span id="profile-status">Online</span>
+          </div>
+          <button class="icon-btn" id="logout-btn" type="button" aria-label="Log out">
+            <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+          </button>
+        </section>
+      </aside>
+
+      <main class="chat-workspace">
+        <header class="chat-header">
+          <button
+            type="button"
+            class="icon-btn menu-toggle"
+            id="menu-toggle"
+            aria-label="Toggle room sidebar"
+            aria-controls="room-sidebar"
+            aria-expanded="false"
+          >
+            <i class="fas fa-bars" aria-hidden="true"></i>
+          </button>
+
+          <div class="channel-title">
+            <span class="channel-icon" aria-hidden="true">#</span>
+            <div>
+              <p class="section-label">Current channel</p>
+              <h1 id="room-name">Loading</h1>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <div class="connection-chip" id="connection-chip" role="status" aria-live="polite">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Connecting</span>
+            </div>
+            <a id="leave-btn" class="btn btn-ghost" href="/" aria-label="Leave workspace">Leave</a>
+          </div>
+        </header>
+
+        <section class="error-banner" id="error-banner" role="alert" hidden>
+          <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+          <span id="error-message">Something went wrong.</span>
+        </section>
+
+        <section class="message-panel" aria-label="Chat messages">
+          <div class="history-loader" id="history-loader" aria-hidden="true">
+            <div class="message-skeleton"><span></span><span></span><span></span></div>
+            <div class="message-skeleton compact"><span></span><span></span></div>
+          </div>
+
+          <div class="empty-state" id="empty-state" hidden>
+            <div class="empty-icon" aria-hidden="true">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h2>Start the conversation</h2>
+            <p>No active messages yet. Share an update and your team will see it instantly.</p>
+          </div>
+
+          <div class="chat-messages" id="chat-messages" aria-live="polite" aria-relevant="additions"></div>
+          <div class="typing-indicator" id="typing-indicator" aria-live="polite" hidden>
+            <span id="typing-text">Someone is typing</span>
+            <span class="typing-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          </div>
+        </section>
+
+        <footer class="composer">
+          <form id="chat-form" class="chat-form">
+            <label class="sr-only" for="msg">Message</label>
+            <button class="icon-btn" type="button" aria-label="Attach file">
+              <i class="fas fa-paperclip" aria-hidden="true"></i>
+            </button>
+            <input
+              id="msg"
+              type="text"
+              placeholder="Message the channel..."
+              required
+              maxlength="1000"
+              autocomplete="off"
+            />
+            <button class="btn btn-primary send-btn" type="submit" aria-label="Send message">
+              <span>Send</span>
+              <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            </button>
+          </form>
+        </footer>
+      </main>
+
+      <aside class="member-panel" aria-label="Online users">
+        <div class="section-heading">
+          <p class="section-label">Online now</p>
+          <span id="member-count" class="count-badge">0</span>
+        </div>
+        <ul id="users" class="member-list" aria-live="polite"></ul>
+      </aside>
+    </div>
+
+    <div class="modal-backdrop" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title" hidden>
+      <section class="settings-panel">
+        <header class="settings-header">
+          <div>
+            <p class="section-label">Workspace preferences</p>
+            <h2 id="settings-title">Settings</h2>
+          </div>
+          <button class="icon-btn" id="settings-close-btn" type="button" aria-label="Close settings">
+            <i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+        </header>
+
+        <div class="settings-content">
+          <section class="settings-group" aria-labelledby="theme-settings-title">
+            <div>
+              <h3 id="theme-settings-title">Theme preferences</h3>
+              <p>DevConnect uses a focused dark workspace theme.</p>
+            </div>
+            <span class="setting-badge">Dark</span>
+          </section>
+
+          <section class="settings-group" aria-labelledby="notification-settings-title">
+            <div>
+              <h3 id="notification-settings-title">Notifications</h3>
+              <p>Show in-app updates for room activity.</p>
+            </div>
+            <label class="switch">
+              <input id="notifications-toggle" type="checkbox" />
+              <span></span>
+            </label>
+          </section>
+
+          <section class="settings-group" aria-labelledby="sound-settings-title">
+            <div>
+              <h3 id="sound-settings-title">Sound</h3>
+              <p>Play a subtle tone for new messages.</p>
+            </div>
+            <label class="switch">
+              <input id="sound-toggle" type="checkbox" />
+              <span></span>
+            </label>
+          </section>
+
+          <section class="settings-group profile-settings" aria-labelledby="profile-settings-title">
+            <div>
+              <h3 id="profile-settings-title">Profile preferences</h3>
+              <p>Update how your name appears in this workspace.</p>
+            </div>
+            <div class="settings-field">
+              <label for="display-name-setting">Display name</label>
+              <input id="display-name-setting" type="text" maxlength="40" />
+            </div>
+          </section>
+        </div>
+
+        <footer class="settings-footer">
+          <button class="btn btn-ghost" id="settings-logout-btn" type="button">Logout</button>
+          <button class="btn btn-primary" id="settings-save-btn" type="button">Save changes</button>
+        </footer>
+      </section>
+    </div>
+
+    <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="js/theme.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

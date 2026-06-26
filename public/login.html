@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Log in to DevConnect." />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Log in | DevConnect</title>
+  </head>
+  <body class="auth-page">
+    <main class="auth-shell">
+      <section class="auth-card" aria-labelledby="auth-title">
+        <a class="brand" href="/" aria-label="DevConnect home">
+          <span class="brand-mark" aria-hidden="true">D</span>
+          <span>DevConnect</span>
+        </a>
+        <div class="auth-heading">
+          <p class="eyebrow">Welcome back</p>
+          <h1 id="auth-title">Log in to your workspace</h1>
+          <p>Pick up your realtime conversations exactly where you left them.</p>
+        </div>
+
+        <form class="auth-form" data-auth-form="login">
+          <div class="form-field">
+            <label for="email">Email</label>
+            <div class="input-shell">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="password">Password</label>
+            <div class="input-shell">
+              <i class="fas fa-lock" aria-hidden="true"></i>
+              <input id="password" name="password" type="password" autocomplete="current-password" required />
+            </div>
+          </div>
+          <p class="form-error" role="alert" hidden></p>
+          <button class="btn btn-primary btn-block" type="submit">Log in</button>
+        </form>
+        <p class="auth-switch">New to DevConnect? <a href="/signup.html">Create an account</a></p>
+      </section>
+    </main>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
